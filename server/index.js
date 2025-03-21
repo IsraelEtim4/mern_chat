@@ -15,16 +15,29 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json()); //for parsing application/json
 
+let users = {};
+
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
 
+  // After complete commit
+  socket.on("setUsername", (username) => {
+    users[socket.id] = username;
+    console.log("users", users);
+  });
+
   socket.on("sendMessage", (message) => {
     console.log("message: ", message);
-    io.emit("recieveMessage", message)
+    // 
+    const username = users[socket.id] || "Anonymous";
+
+    io.emit("recieveMessage", { username, message });
   });
 
   socket.on("disconnect", () => {
     console.log("user disconnected");
+    // 
+    delete users[socket.id];
   });
 });
 
