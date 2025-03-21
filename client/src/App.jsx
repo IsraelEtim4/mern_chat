@@ -46,14 +46,14 @@ function App() {
 
   return (
     <>
-      <div className='bg-blue-50 text-black w-screen m-0 text-center'>
-        <h1 className='text-4xl m-5'>Let's Have Good Memories</h1>
+      <div className='bg-green-50 text-black m-0 text-center'>
+        <h1 className='text-4xl m-5 text-green-300 font-bold'>Chat With Me</h1>
         {/* After first commit */}
         {
           !isUsernameSet ? (
             <div className="w-96 m-auto">
-              <input onChange={(e) => { setUsername(e.target.value )}} value={username} type="text" className="w-1/2 m-5 border border-blue-200 p-3 rounded" placeholder='Enter your username' />
-              <button onClick={setUser} className="bg-blue-500 text-white p-3 rounded-lg">Start Chatting</button>
+              <input onChange={(e) => { setUsername(e.target.value )}} value={username} type="text" className="w-1/2 m-5 border border-green-200 p-3 rounded" placeholder='Enter your username' />
+              <button onClick={setUser} className="bg-green-500 text-white p-3 rounded-lg">Start Chatting</button>
             </div>
           ) : (
             <>
@@ -61,15 +61,15 @@ function App() {
                 {
                   messages && messages.map((msg, index) => {
                     return (
-                      <p key={index} className="bg-blue-200 p-5 rounded m-2 w-fit">
+                      <p key={index} className="bg-green-200 p-5 rounded m-2 w-fit">
                         <strong>{msg.username}: </strong>{msg.message}
                       </p>
                     )
                   })
                 }
               </div>
-              <input onChange={(e) => { setMessage(e.target.value )}} value={message} type="text" className="w-1/2 m-5 border border-blue-200 p-3 rounded" placeholder='Type your message' />
-              <button onClick={sendMessage} className="bg-blue-500 text-white p-3 rounded-lg">Send</button>
+              <input onChange={(e) => { setMessage(e.target.value )}} value={message} type="text" className="w-1/2 m-5 border border-green-200 p-3 rounded" placeholder='Type your message' />
+              <button onClick={sendMessage} className="bg-green-500 text-white p-3 rounded-lg">Send</button>
             </>
           )
         }
