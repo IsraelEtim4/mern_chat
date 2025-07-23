@@ -4,6 +4,7 @@ import { Server } from "socket.io";
 import cors from "cors";
 
 const app = express();
+const port = 3000;
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -18,7 +19,7 @@ app.use(express.json()); //for parsing application/json
 let users = {};
 
 io.on("connection", (socket) => {
-  console.log("a user connected", socket.id);
+  console.log("a user connected:", socket.id);
 
   // After complete commit
   socket.on("setUsername", (username) => {
@@ -42,5 +43,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(3000, () => {
-  console.log("listening on *:3000");
+  console.log(`listening on port: ${port}`);
 });

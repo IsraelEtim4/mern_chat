@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { io } from 'socket.io-client'
-import './App.css'
+import { useEffect, useState } from 'react';
+import { io } from 'socket.io-client';
+import './App.css';
 
 const socket = io('http://localhost:3000', {
   transports: ['websocket'],
@@ -72,8 +72,7 @@ function App() {
               <button onClick={sendMessage} className="bg-green-500 text-white p-3 rounded-lg">Send</button>
             </>
           )
-        }
-        
+        }        
       </div>
     </>
   )
